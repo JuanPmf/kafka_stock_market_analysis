@@ -1,3 +1,5 @@
+kafka_stock_market_analysis
+
 wget https://downloads.apache.org/kafka/3.5.1/kafka_2.12-3.5.1.tgz
 tar -xvf kafka_2.12-3.5.1.tgz
 
@@ -31,7 +33,7 @@ Do a "sudo nano config/server.properties" - change ADVERTISED_LISTENERS to publi
 Create the topic:
 -----------------------------
 Duplicate the session & enter in a new console --
-cd kafka_2.12-3.3.1
+cd kafka_2.12-3.5.1
 bin/kafka-topics.sh --create --topic demo_testing2 --bootstrap-server {Put the Public IP of your EC2 Instance:9092} --replication-factor 1 --partitions 1
 bin/kafka-topics.sh --create --topic demo_test --bootstrap-server 18.212.122.177:9092 --replication-factor 1 --partitions 1
 
@@ -43,5 +45,8 @@ bin/kafka-console-producer.sh --topic demo_test --bootstrap-server 18.212.122.17
 Start Consumer:
 -------------------------
 Duplicate the session & enter in a new console --
-cd kafka_2.12-3.3.1
+cd kafka_2.12-3.5.1
 bin/kafka-console-consumer.sh --topic demo_test --bootstrap-server 18.212.122.177:9092
+
+Connect to created EC2 instance
+ssh -i "kafka-stock-market-project-key.pem" ec2-user@ec2-18-212-122-177.compute-1.amazonaws.com
